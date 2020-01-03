@@ -10,4 +10,11 @@
     <Product>Dreamland</Product>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="dotnetCampus.SourceYard" Version="0.1.19003-alpha">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
 </Project>
