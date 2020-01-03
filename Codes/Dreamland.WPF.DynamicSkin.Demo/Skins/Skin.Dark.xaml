@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=System.Runtime">
+
+    <SolidColorBrush x:Key="Brush.Background.Accent.Normal.DarkSkin">#CCCCCC</SolidColorBrush>
+    <SolidColorBrush x:Key="Brush.Background.Accent.Dark.DarkSkin">#B2B2B2</SolidColorBrush>
+    <SolidColorBrush x:Key="Brush.Background.Accent.Light.DarkSkin">#E4E4E4</SolidColorBrush>
+
+    <SolidColorBrush x:Key="Brush.Background.Warning.Normal.DarkSkin">#E27D55</SolidColorBrush>
+    <SolidColorBrush x:Key="Brush.Background.Warning.Dark.DarkSkin">#F26D55</SolidColorBrush>
+    <SolidColorBrush x:Key="Brush.Background.Warning.Light.DarkSkin">#F25D55</SolidColorBrush>
+
+    <SolidColorBrush x:Key="Brush.Foreground.Accent.Dark.DarkSkin">#464646</SolidColorBrush>
+    <system:Double x:Key="Double.FontSize.Title.DarkSkin">20</system:Double>
+
+</ResourceDictionary>
