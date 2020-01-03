@@ -3,6 +3,11 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
+    <Authors>YuZhe Firito</Authors>
+    <Description>一个适用于WPF项目的动态换肤控件库。</Description>
+    <PackageProjectUrl>https://github.com/Firito/Dreamland.WPF.DynamicSkin</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Firito/Dreamland.WPF.DynamicSkin</RepositoryUrl>
+    <Product>Dreamland</Product>
   </PropertyGroup>
 
 </Project>
