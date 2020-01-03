@@ -1,0 +1,25 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=System.Runtime">
+
+    <SolidColorBrush x:Key="Brush.Background.Accent.Normal">#AADDFF</SolidColorBrush>
+    <SolidColorBrush x:Key="Brush.Background.Accent.Dark">#AADEDE</SolidColorBrush>
+    <SolidColorBrush x:Key="Brush.Background.Accent.Light">#AADDEE</SolidColorBrush>
+
+    <SolidColorBrush x:Key="Brush.Background.Warning.Normal">#DD1515</SolidColorBrush>
+    <SolidColorBrush x:Key="Brush.Background.Warning.Dark">#AA3333</SolidColorBrush>
+    <SolidColorBrush x:Key="Brush.Background.Warning.Light">#FF0505</SolidColorBrush>
+
+    <SolidColorBrush x:Key="Brush.Border.Accent">#888888</SolidColorBrush>
+
+    <SolidColorBrush x:Key="Brush.Foreground.Accent.Light">#DDDDDD</SolidColorBrush>
+    <SolidColorBrush x:Key="Brush.Foreground.Accent.Lightest">#FFFFFF</SolidColorBrush>
+    <SolidColorBrush x:Key="Brush.Foreground.Accent.Normal">#666666</SolidColorBrush>
+    <SolidColorBrush x:Key="Brush.Foreground.Accent.Dark">#464748</SolidColorBrush>
+
+    <!--Thickness-->
+    <Thickness x:Key="Thickness.Border.Accent">1</Thickness>
+
+    <system:Double x:Key="Double.FontSize.Title">24</system:Double>
+
+</ResourceDictionary>
