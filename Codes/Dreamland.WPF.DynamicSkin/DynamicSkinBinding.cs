@@ -6,10 +6,11 @@ using System.Windows.Markup;
 
 namespace Dreamland.WPF.DynamicSkin
 {
-    internal class DynamicSkinBinding : MarkupExtension
+    /// <summary>
+    /// 动态皮肤绑定
+    /// </summary>
+    public class DynamicSkinBinding : StaticResourceExtension
     {
-        public string ResourceKey { get; }
-
         public DynamicSkinBinding(string resourceKey)
         {
             ResourceKey = resourceKey;
