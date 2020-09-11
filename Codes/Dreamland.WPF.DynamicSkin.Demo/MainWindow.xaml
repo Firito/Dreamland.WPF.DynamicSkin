@@ -30,9 +30,11 @@
                             </Border>
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
+                                    <!--注：此处动态皮肤机制不会生效-->
                                     <Setter TargetName="RootBorder" Property="Background" Value="{skin:DynamicSkinBinding Brush.Background.Accent.Light}"/>
                                 </Trigger>
                                 <Trigger Property="IsPressed" Value="True">
+                                    <!--注：此处动态皮肤机制不会生效-->
                                     <Setter TargetName="RootBorder" Property="Background" Value="{skin:DynamicSkinBinding Brush.Background.Accent.Dark}"/>
                                 </Trigger>
                             </ControlTemplate.Triggers>
@@ -60,9 +62,11 @@
                             </Border>
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
+                                    <!--注：此处动态皮肤机制不会生效-->
                                     <Setter TargetName="RootBorder" Property="Background" Value="{skin:DynamicSkinBinding Brush.Background.Warning.Light}"/>
                                 </Trigger>
                                 <Trigger Property="IsPressed" Value="True">
+                                    <!--注：此处动态皮肤机制不会生效-->
                                     <Setter TargetName="RootBorder" Property="Background" Value="{skin:DynamicSkinBinding Brush.Background.Warning.Dark}"/>
                                 </Trigger>
                             </ControlTemplate.Triggers>
