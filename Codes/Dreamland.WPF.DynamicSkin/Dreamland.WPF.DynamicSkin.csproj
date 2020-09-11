@@ -1,20 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
-  <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <UseWPF>true</UseWPF>
-    <Authors>YuZhe Firito</Authors>
-    <Description>一个适用于WPF项目的动态换肤控件库。</Description>
-    <PackageProjectUrl>https://github.com/Firito/Dreamland.WPF.DynamicSkin</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/Firito/Dreamland.WPF.DynamicSkin</RepositoryUrl>
-    <Product>Dreamland</Product>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <UseWPF>true</UseWPF>
+        <Authors>YuZhe Firito</Authors>
+        <Description>一个适用于WPF项目的动态换肤控件库。</Description>
+        <PackageProjectUrl>https://github.com/Firito/Dreamland.WPF.DynamicSkin</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/Firito/Dreamland.WPF.DynamicSkin</RepositoryUrl>
+        <Product>Dreamland</Product>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="dotnetCampus.SourceYard" Version="0.1.19003-alpha">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
+    <ItemGroup>
+        <None Remove="Dreamland.WPF.DynamicSkin.csproj.DotSettings" />
+    </ItemGroup>
 
 </Project>

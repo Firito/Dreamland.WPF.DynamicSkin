@@ -21,7 +21,8 @@ namespace Dreamland.WPF.DynamicSkin
 
             if (string.IsNullOrWhiteSpace(resourceKey))
             {
-                DynamicSkinService.RaiseErrorOutput($"[DynamicSkinError] DynamicSkinMultiConverter: Parameter error. Resource is {resourceKey} ");
+                DynamicSkinService.RaiseErrorOutput(
+                    $"[DynamicSkinError] DynamicSkinMultiConverter: Parameter error. Resource is {resourceKey} ");
                 return null;
             }
 
@@ -31,25 +32,21 @@ namespace Dreamland.WPF.DynamicSkin
 
                 if (string.IsNullOrWhiteSpace(skinName))
                 {
-                    return DynamicSkinService.ResourceDictionary?.TryGetValue(resourceKey, out resource) == true 
-                        ? resource : _element.TryFindResource(resourceKey);
-                }
-                else
-                {
-                    if (DynamicSkinService.ResourceDictionary?.TryGetValue(resourceKey + "." + skinName, out resource) == true)
-                    {
-                        return resource;
-                    }
-
-                    if((resource = _element.TryFindResource(resourceKey + "." + skinName)) != null)
-                    {
-                        return resource;
-                    }
-
-                    DynamicSkinService.RaiseErrorOutput($"[DynamicSkinError] DynamicSkinMultiConverter: Can't find {resourceKey + "." + skinName}");
                     return DynamicSkinService.ResourceDictionary?.TryGetValue(resourceKey, out resource) == true
-                        ? resource : _element.TryFindResource(resourceKey);
+                        ? resource
+                        : _element.TryFindResource(resourceKey);
                 }
+
+                if (DynamicSkinService.ResourceDictionary?.TryGetValue(resourceKey + "." + skinName, out resource) ==
+                    true) return resource;
+
+                if ((resource = _element.TryFindResource(resourceKey + "." + skinName)) != null) return resource;
+
+                DynamicSkinService.RaiseErrorOutput(
+                    $"[DynamicSkinError] DynamicSkinMultiConverter: Can't find {resourceKey + "." + skinName}");
+                return DynamicSkinService.ResourceDictionary?.TryGetValue(resourceKey, out resource) == true
+                    ? resource
+                    : _element.TryFindResource(resourceKey);
             }
             catch (Exception ex)
             {
