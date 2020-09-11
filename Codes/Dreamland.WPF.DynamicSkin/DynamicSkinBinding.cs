@@ -7,7 +7,7 @@ using System.Windows.Markup;
 namespace Dreamland.WPF.DynamicSkin
 {
     /// <summary>
-    /// 动态皮肤绑定
+    ///     动态皮肤绑定
     /// </summary>
     public class DynamicSkinBinding : StaticResourceExtension
     {
@@ -32,7 +32,7 @@ namespace Dreamland.WPF.DynamicSkin
 
         internal object SetBinding(IServiceProvider serviceProvider, FrameworkElement element)
         {
-            return new Binding()
+            return new Binding
             {
                 Mode = BindingMode.OneWay,
                 Path = new PropertyPath(nameof(DynamicSkinModel.CurrentSkinName)),
