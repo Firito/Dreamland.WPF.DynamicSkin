@@ -7,31 +7,31 @@ using System.Windows.Markup;
 namespace Dreamland.WPF.DynamicSkin
 {
     /// <summary>
-    ///     动态皮肤绑定
+    ///     实现支持样式 （XAML 加载时） 资源的标记扩展插件从 XAML 进行的引用。
     /// </summary>
     [MarkupExtensionReturnType(typeof(object))]
     [Localizability(LocalizationCategory.NeverLocalize)]
-    public class DynamicSkinBinding : StaticResourceExtension
+    public class DynamicSkinExtension : StaticResourceExtension
     {
         /// <summary>
-        ///   初始化 <see cref="DynamicSkinBinding" /> 类的新实例。
+        ///   初始化 <see cref="DynamicSkinExtension" /> 类的新实例。
         /// </summary>
-        public DynamicSkinBinding()
+        public DynamicSkinExtension()
         {
         }
 
         /// <summary>
-        ///   新实例初始化 <see cref="DynamicSkinBinding" /> 类，提供的初始密钥。
+        ///   新实例初始化 <see cref="DynamicSkinExtension" /> 类，提供的初始密钥。
         /// </summary>
         /// <param name="resourceKey">此标记扩展所引用的资源键。</param>
         /// <exception cref="T:System.ArgumentNullException">
         ///   <paramref name="resourceKey" /> 参数是 <see langword="null" />, ，通过标记扩展用法或显式构造。
         /// </exception>
-        public DynamicSkinBinding(object resourceKey) => ResourceKey = resourceKey ?? throw new ArgumentNullException(nameof(resourceKey));
+        public DynamicSkinExtension(object resourceKey) => ResourceKey = resourceKey ?? throw new ArgumentNullException(nameof(resourceKey));
 
         /// <summary>
         ///   返回一个应在应用了此扩展的属性上设置的对象。
-        ///    有关 <see cref="DynamicSkinBinding" />, ，这是在资源字典，其中由标识要查找的对象中找到的对象 <see cref="DynamicSkinBinding.ResourceKey" />。
+        ///    有关 <see cref="DynamicSkinExtension" />, ，这是在资源字典，其中由标识要查找的对象中找到的对象 <see cref="DynamicSkinExtension.ResourceKey" />。
         /// </summary>
         /// <param name="serviceProvider">可为标记扩展提供服务的对象。</param>
         /// <returns>要在其中计算标记扩展提供值的属性上设置的对象值。</returns>
