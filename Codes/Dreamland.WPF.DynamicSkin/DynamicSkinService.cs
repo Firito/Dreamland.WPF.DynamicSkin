@@ -44,7 +44,7 @@ namespace Dreamland.WPF.DynamicSkin
 
         internal static void RaiseErrorOutput(string errorMessage)
         {
-            Task.Run(() => { ErrorOutput?.Invoke(null, new ErrorOutputEventArgs(errorMessage)); });
+            ErrorOutput?.Invoke(null, new ErrorOutputEventArgs(errorMessage));
         }
     }
 }

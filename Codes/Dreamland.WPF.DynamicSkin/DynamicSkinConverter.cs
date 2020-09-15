@@ -31,11 +31,9 @@ namespace Dreamland.WPF.DynamicSkin
                 object resource = null;
 
                 if (string.IsNullOrWhiteSpace(skinName))
-                {
                     return DynamicSkinService.ResourceDictionary?.TryGetValue(resourceKey, out resource) == true
                         ? resource
                         : _element.TryFindResource(resourceKey);
-                }
 
                 if (DynamicSkinService.ResourceDictionary?.TryGetValue(resourceKey + "." + skinName, out resource) ==
                     true) return resource;
