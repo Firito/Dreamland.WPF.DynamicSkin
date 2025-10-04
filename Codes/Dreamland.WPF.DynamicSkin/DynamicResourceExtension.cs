@@ -7,48 +7,43 @@ using System.Windows.Markup;
 namespace Dreamland.WPF.DynamicSkin;
 
 /// <summary>
-///     实现支持样式资源的标记扩展。用于在 XAML 中动态绑定 Style 类型的资源。
-///     Markup extension that supports style resources. Used to dynamically bind Style-type resources in XAML.
+///     实现支持通用资源（Brush、Color、Thickness 等）的标记扩展。
+///     适用于非 Style 类型的动态资源绑定。
+///     Markup extension that supports general resources (Brush, Color, Thickness, etc.).
+///     Suitable for dynamic resource binding of non-Style types.
 /// </summary>
-[MarkupExtensionReturnType(typeof(Style))]
+[MarkupExtensionReturnType(typeof(object))]
 [Localizability(LocalizationCategory.NeverLocalize)]
-public class DynamicStyleExtension : StaticResourceExtension
+public class DynamicResourceExtension : StaticResourceExtension
 {
     /// <summary>
-    ///     初始化 <see cref="DynamicStyleExtension" /> 类的新实例。
-    ///     Initializes a new instance of the <see cref="DynamicStyleExtension" /> class.
+    ///     初始化 <see cref="DynamicResourceExtension" /> 类的新实例。
+    ///     Initializes a new instance of the <see cref="DynamicResourceExtension" /> class.
     /// </summary>
-    public DynamicStyleExtension()
+    public DynamicResourceExtension()
     {
     }
 
     /// <summary>
-    ///     初始化 <see cref="DynamicStyleExtension" /> 类的新实例，并提供初始资源键。
-    ///     Initializes a new instance of the <see cref="DynamicStyleExtension" /> class with an initial resource key.
+    ///     初始化 <see cref="DynamicResourceExtension" /> 类的新实例，并提供初始资源键。
+    ///     Initializes a new instance of the <see cref="DynamicResourceExtension" /> class with an initial resource key.
     /// </summary>
     /// <param name="resourceKey">此标记扩展所引用的资源键 / The resource key referenced by this markup extension</param>
     /// <exception cref="ArgumentNullException">
     ///     当 <paramref name="resourceKey" /> 参数为 <see langword="null" />。
     ///     When the <paramref name="resourceKey" /> parameter is <see langword="null" />.
     /// </exception>
-    public DynamicStyleExtension(object resourceKey)
+    public DynamicResourceExtension(object resourceKey)
     {
         ResourceKey = resourceKey ?? throw new ArgumentNullException(nameof(resourceKey));
     }
 
     /// <summary>
     ///     返回一个应在应用了此扩展的属性上设置的对象。
-    ///     对于 <see cref="DynamicStyleExtension" />，这是在资源字典中找到的对象，由 <see cref="StaticResourceExtension.ResourceKey" /> 标识。
     ///     Returns an object that should be set on the property where this extension is applied.
-    ///     For <see cref="DynamicStyleExtension" />, this is the object found in the resource dictionary, identified by
-    ///     <see cref="StaticResourceExtension.ResourceKey" />.
     /// </summary>
     /// <param name="serviceProvider">可为标记扩展提供服务的对象 / An object that can provide services for the markup extension</param>
     /// <returns>要在其中计算标记扩展提供值的属性上设置的对象值 / The object value to set on the property where the markup extension is evaluated</returns>
-    /// <exception cref="InvalidOperationException">
-    ///     当 <paramref name="serviceProvider" /> 为 <see langword="null" />，或未能实现所需的服务。
-    ///     When <paramref name="serviceProvider" /> is <see langword="null" />, or fails to implement required services.
-    /// </exception>
     public override object? ProvideValue(IServiceProvider serviceProvider)
     {
         if (serviceProvider == null)

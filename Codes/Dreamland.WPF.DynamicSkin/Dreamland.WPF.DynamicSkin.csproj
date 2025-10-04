@@ -1,17 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
-    <PropertyGroup>
-        <TargetFrameworks>net45;netcoreapp3.1;</TargetFrameworks>
-        <UseWPF>true</UseWPF>
-        <Authors>YuZhe Firito</Authors>
-        <Description>一个适用于WPF项目的动态换肤控件库。</Description>
-        <PackageProjectUrl>https://github.com/Firito/Dreamland.WPF.DynamicSkin</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/Firito/Dreamland.WPF.DynamicSkin</RepositoryUrl>
-        <Product>Dreamland</Product>
-    </PropertyGroup>
+  <PropertyGroup>
+    <TargetFrameworks>net45;net6.0-windows;net8.0-windows;</TargetFrameworks>
+    <UseWPF>true</UseWPF>
+    <Authors>YuZhe Firito</Authors>
+    <Description>一个适用于WPF项目的动态换肤控件库。（A dynamic skin-changing control library for WPF projects.）</Description>
+    <PackageProjectUrl>https://github.com/Firito/Dreamland.WPF.DynamicSkin</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Firito/Dreamland.WPF.DynamicSkin</RepositoryUrl>
+    <Product>Dreamland</Product>
+    <Version>1.0.0</Version>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>WPF;Theme;Skin;DynamicSkin</PackageTags>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Copyright>Copyright © YuZhe Firito</Copyright>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
 
-    <ItemGroup>
-        <None Remove="Dreamland.WPF.DynamicSkin.csproj.DotSettings" />
-    </ItemGroup>
+  <ItemGroup>
+    <None Remove="Dreamland.WPF.DynamicSkin.csproj.DotSettings" />
+  </ItemGroup>
 
 </Project>
