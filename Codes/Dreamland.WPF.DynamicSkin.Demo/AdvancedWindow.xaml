@@ -1,0 +1,272 @@
+﻿<Window x:Class="Dreamland.WPF.DynamicSkin.Demo.AdvancedWindow"
+        Title="Advanced Features Demo"
+        Height="600"
+        Width="870"
+        WindowStartupLocation="CenterScreen"
+        Style="{skin:DynamicStyle MainWindowStyle}"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:skin="clr-namespace:Dreamland.WPF.DynamicSkin;assembly=Dreamland.WPF.DynamicSkin"
+        xmlns:controls="clr-namespace:Dreamland.WPF.DynamicSkin.Demo.Controls">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Optimized header -->
+        <Border Grid.Row="0" Padding="15,10" Background="{skin:DynamicResource PrimaryBrush}">
+            <Grid>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" FontSize="18" FontWeight="Bold" Foreground="White"
+                               Text="高级功能" />
+                    <TextBlock Margin="10,0,0,0" VerticalAlignment="Center" FontSize="14" Foreground="White"
+                               Opacity="0.7" Text="Advanced Features" />
+                </StackPanel>
+                <Button HorizontalAlignment="Right" Padding="12,5" FontSize="12" Content="返回 | Back"
+                        Style="{skin:DynamicStyle SecondaryButtonStyle}" Click="OnBackClick" />
+            </Grid>
+        </Border>
+
+        <!-- Optimized TabControl -->
+        <TabControl Grid.Row="1" Margin="15" Style="{skin:DynamicStyle TabControlStyle}">
+
+            <TabItem Style="{skin:DynamicStyle TabItemStyle}">
+                <TabItem.Header>
+                    <controls:BilingualTextBlock ChineseFontSize="13" ChineseText="主题管理" EnglishFontSize="10"
+                                                 EnglishText="Theme Management" ShowTranslationIndicator="False" />
+                </TabItem.Header>
+                <Border Margin="8" Padding="12" Background="{skin:DynamicResource BackgroundBrush}"
+                        BorderBrush="{skin:DynamicResource BorderBrush}" BorderThickness="1" CornerRadius="6">
+                    <StackPanel>
+                        <controls:BilingualTextBlock Margin="0,0,0,15" ChineseFontSize="16" ChineseFontWeight="Bold"
+                                                     ChineseText="主题管理" EnglishFontSize="12"
+                                                     EnglishText="Theme Management" />
+
+                        <GroupBox Margin="0,0,0,12">
+                            <GroupBox.Header>
+                                <controls:BilingualTextBlock ChineseFontSize="12" ChineseText="当前主题信息"
+                                                             EnglishFontSize="10" EnglishText="Current Theme Info"
+                                                             ShowTranslationIndicator="False" />
+                            </GroupBox.Header>
+                            <StackPanel>
+                                <Grid Margin="0,12,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <TextBlock Grid.Row="0" Grid.Column="0" Margin="3" FontSize="11"
+                                               Foreground="{skin:DynamicResource ForegroundBrush}" Text="主题名称 | Theme:" />
+                                    <TextBlock x:Name="CurrentThemeText" Grid.Row="0" Grid.Column="1" Margin="3"
+                                               FontSize="11" FontWeight="Bold"
+                                               Foreground="{skin:DynamicResource PrimaryBrush}" Text="Default" />
+
+                                    <TextBlock Grid.Row="1" Grid.Column="0" Margin="3" FontSize="11"
+                                               Foreground="{skin:DynamicResource ForegroundBrush}"
+                                               Text="主色调 | Primary:" />
+                                    <StackPanel Grid.Row="1" Grid.Column="1" Margin="3" Orientation="Horizontal">
+                                        <Border Width="35" Height="22" Background="{skin:DynamicResource PrimaryBrush}"
+                                                BorderBrush="{skin:DynamicResource BorderBrush}" BorderThickness="1"
+                                                CornerRadius="3" />
+                                        <TextBlock Margin="8,0,0,0" VerticalAlignment="Center" FontSize="10"
+                                                   Foreground="{skin:DynamicResource ForegroundBrush}"
+                                                   Text="{Binding ElementName=PrimaryColorText, Path=Text}" />
+                                    </StackPanel>
+
+                                    <TextBlock Grid.Row="2" Grid.Column="0" Margin="3" FontSize="11"
+                                               Foreground="{skin:DynamicResource ForegroundBrush}"
+                                               Text="背景 | Background:" />
+                                    <Border Grid.Row="2" Grid.Column="1" Width="35" Height="22" Margin="3"
+                                            HorizontalAlignment="Left"
+                                            Background="{skin:DynamicResource BackgroundBrush}"
+                                            BorderBrush="{skin:DynamicResource BorderBrush}" BorderThickness="1"
+                                            CornerRadius="3" />
+                                </Grid>
+                            </StackPanel>
+                        </GroupBox>
+
+                        <Grid Margin="0 0 12 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <GroupBox>
+                                <GroupBox.Header>
+                                    <controls:BilingualTextBlock ChineseFontSize="12" ChineseText="可用主题"
+                                                                 EnglishFontSize="10" EnglishText="Available Themes"
+                                                                 ShowTranslationIndicator="False" />
+                                </GroupBox.Header>
+                                <ItemsControl x:Name="ThemesListBox" Margin="0,12,0,0">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Margin="3" Padding="8"
+                                                    Background="{skin:DynamicResource BackgroundBrush}"
+                                                    BorderBrush="{skin:DynamicResource BorderBrush}"
+                                                    BorderThickness="1" CornerRadius="3">
+                                                <TextBlock FontSize="11"
+                                                           Foreground="{skin:DynamicResource ForegroundBrush}"
+                                                           Text="{Binding}" />
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </GroupBox>
+
+                            <GroupBox Grid.Column="1" Margin="12 0 0 0">
+                                <GroupBox.Header>
+                                    <controls:BilingualTextBlock ChineseFontSize="12" ChineseText="主题操作"
+                                                                 EnglishFontSize="10" EnglishText="Theme Actions"
+                                                                 ShowTranslationIndicator="False" />
+                                </GroupBox.Header>
+                                <StackPanel>
+                                    <Button Margin="0,12,0,6" HorizontalAlignment="Stretch" Padding="10,5"
+                                            FontSize="11"
+                                            Content="下一个主题 | Next Theme" Style="{skin:DynamicStyle PrimaryButtonStyle}"
+                                            Click="OnNextThemeClick" />
+
+                                    <Button Margin="0,6" HorizontalAlignment="Stretch" Padding="10,5" FontSize="11"
+                                            Content="跟随系统 | Follow System"
+                                            Style="{skin:DynamicStyle SecondaryButtonStyle}" Click="OnSystemThemeClick" />
+
+                                    <Button Margin="0,6" HorizontalAlignment="Stretch" Padding="10,5" FontSize="11"
+                                            Content="预加载主题 | Preload" Style="{skin:DynamicStyle SecondaryButtonStyle}"
+                                            Click="OnPreloadThemesClick" />
+
+                                    <Button Margin="0,6" HorizontalAlignment="Stretch" Padding="10,5" FontSize="11"
+                                            Content="清除缓存 | Clear Cache"
+                                            Style="{skin:DynamicStyle SecondaryButtonStyle}" Click="OnClearCacheClick" />
+                                </StackPanel>
+                            </GroupBox>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </TabItem>
+
+            <TabItem Style="{skin:DynamicStyle TabItemStyle}">
+                <TabItem.Header>
+                    <controls:BilingualTextBlock ChineseFontSize="13" ChineseText="动态资源" EnglishFontSize="10"
+                                                 EnglishText="Dynamic Resources" ShowTranslationIndicator="False" />
+                </TabItem.Header>
+                <Border Margin="8" Padding="12" Background="{skin:DynamicResource BackgroundBrush}"
+                        BorderBrush="{skin:DynamicResource BorderBrush}" BorderThickness="1" CornerRadius="6">
+                    <StackPanel>
+                        <controls:BilingualTextBlock Margin="0,0,0,15" ChineseFontSize="16" ChineseFontWeight="Bold"
+                                                     ChineseText="动态资源管理" EnglishFontSize="12"
+                                                     EnglishText="Dynamic Resource Management" />
+
+                        <GroupBox Margin="0,0,0,12">
+                            <GroupBox.Header>
+                                <controls:BilingualTextBlock ChineseFontSize="12" ChineseText="添加自定义资源"
+                                                             EnglishFontSize="10" EnglishText="Add Custom Resource"
+                                                             ShowTranslationIndicator="False" />
+                            </GroupBox.Header>
+                            <StackPanel>
+                                <TextBlock Margin="0,12,0,3" FontSize="11"
+                                           Foreground="{skin:DynamicResource ForegroundBrush}" Text="资源键 | Resource Key:" />
+                                <TextBox x:Name="ResourceKeyTextBox" Margin="0,3" Padding="6" FontSize="11"
+                                         Text="CustomBrush"
+                                         Style="{skin:DynamicStyle TextBoxStyle}" />
+
+                                <TextBlock Margin="0,8,0,3" FontSize="11"
+                                           Foreground="{skin:DynamicResource ForegroundBrush}"
+                                           Text="颜色值 | Color Value:" />
+                                <TextBox x:Name="ResourceValueTextBox" Margin="0,3" Padding="6" FontSize="11"
+                                         Text="#FFFF5722"
+                                         Style="{skin:DynamicStyle TextBoxStyle}" />
+
+                                <Border x:Name="ResourcePreviewBorder" Height="32" Margin="0,8"
+                                        Background="{StaticResource PrimaryBrush}" CornerRadius="4">
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="11"
+                                               FontWeight="Bold" Foreground="White" Text="资源预览 | Resource Preview" />
+                                </Border>
+
+                                <Button Margin="0,6" Padding="10,5" FontSize="11" Content="添加资源 | Add Resource"
+                                        Style="{skin:DynamicStyle PrimaryButtonStyle}" Click="OnAddResourceClick" />
+                            </StackPanel>
+                        </GroupBox>
+
+                        <GroupBox>
+                            <GroupBox.Header>
+                                <controls:BilingualTextBlock ChineseFontSize="12" ChineseText="缓存统计"
+                                                             EnglishFontSize="10" EnglishText="Cache Statistics"
+                                                             ShowTranslationIndicator="False" />
+                            </GroupBox.Header>
+                            <StackPanel>
+                                <TextBlock Margin="0,12,0,0" FontSize="11"
+                                           Foreground="{skin:DynamicResource ForegroundBrush}">
+                                    <Run Text="缓存资源数 | Cached:" />
+                                    <Run x:Name="CacheCountText" FontWeight="Bold"
+                                         Foreground="{Binding Source={StaticResource PrimaryBrush}}" Text="0" />
+                                </TextBlock>
+
+                                <Button Margin="0,6" HorizontalAlignment="Left" Padding="10,5" FontSize="11"
+                                        Content="刷新统计 | Refresh" Style="{skin:DynamicStyle SecondaryButtonStyle}"
+                                        Click="OnRefreshStatsClick" />
+                            </StackPanel>
+                        </GroupBox>
+                    </StackPanel>
+                </Border>
+            </TabItem>
+
+            <TabItem Style="{skin:DynamicStyle TabItemStyle}">
+                <TabItem.Header>
+                    <controls:BilingualTextBlock ChineseFontSize="13" ChineseText="性能测试" EnglishFontSize="10"
+                                                 EnglishText="Performance Test" ShowTranslationIndicator="False" />
+                </TabItem.Header>
+                <Border Margin="8" Padding="12" Background="{skin:DynamicResource BackgroundBrush}"
+                        BorderBrush="{skin:DynamicResource BorderBrush}" BorderThickness="1" CornerRadius="6">
+                    <StackPanel>
+                        <controls:BilingualTextBlock Margin="0,0,0,15" ChineseFontSize="16" ChineseFontWeight="Bold"
+                                                     ChineseText="性能测试工具" EnglishFontSize="12"
+                                                     EnglishText="Performance Testing Tools" />
+
+                        <GroupBox Margin="0,0,0,12">
+                            <GroupBox.Header>
+                                <controls:BilingualTextBlock ChineseFontSize="12" ChineseText="主题切换性能（测试切换主题 1000 次）"
+                                                             EnglishFontSize="10"
+                                                             EnglishText="Theme Switching Performance（Test switching themes 1000 times）"
+                                                             ShowTranslationIndicator="False" />
+                            </GroupBox.Header>
+                            <StackPanel>
+                                <TextBlock x:Name="PerformanceResultText" Margin="0,12,0,0" FontSize="11"
+                                           FontWeight="Bold" Foreground="{skin:DynamicResource ForegroundBrush}"
+                                           Text="点击开始测试 | Click to start" />
+
+                                <Button Padding="10,5" Margin="0,6" FontSize="11" Content="开始测试 | Start Test"
+                                        Style="{skin:DynamicStyle PrimaryButtonStyle}" Click="OnPerformanceTestClick" />
+                            </StackPanel>
+                        </GroupBox>
+
+                        <GroupBox>
+                            <GroupBox.Header>
+                                <controls:BilingualTextBlock ChineseFontSize="12"
+                                                             ChineseText="内存使用测试（创建和销毁 100 个窗口以检查内存使用）"
+                                                             EnglishFontSize="10"
+                                                             EnglishText="Memory Usage Test（Create and destroy 100 windows to check memory）"
+                                                             ShowTranslationIndicator="False" />
+                            </GroupBox.Header>
+                            <StackPanel>
+                                <TextBlock x:Name="MemoryResultText" Margin="0,12,0,0" FontSize="11"
+                                           FontWeight="Bold" Foreground="{skin:DynamicResource ForegroundBrush}"
+                                           Text="点击开始测试 | Click to start" />
+
+                                <Button Padding="10,5" Margin="0,6" FontSize="11" Content="开始内存测试 | Memory Test"
+                                        Style="{skin:DynamicStyle PrimaryButtonStyle}" Click="OnMemoryTestClick" />
+                            </StackPanel>
+                        </GroupBox>
+                    </StackPanel>
+                </Border>
+            </TabItem>
+        </TabControl>
+
+        <TextBlock x:Name="PrimaryColorText" Visibility="Collapsed" />
+    </Grid>
+</Window>

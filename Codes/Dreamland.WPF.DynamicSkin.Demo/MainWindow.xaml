@@ -1,0 +1,274 @@
+﻿<Window x:Class="Dreamland.WPF.DynamicSkin.Demo.MainWindow"
+        Title="Dreamland.WPF.DynamicSkin 演示程序"
+        Height="600"
+        Width="900"
+        WindowStartupLocation="CenterScreen"
+        Style="{skin:DynamicStyle MainWindowStyle}"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:skin="clr-namespace:Dreamland.WPF.DynamicSkin;assembly=Dreamland.WPF.DynamicSkin"
+        xmlns:controls="clr-namespace:Dreamland.WPF.DynamicSkin.Demo.Controls"
+        mc:Ignorable="d">
+
+    <Window.Resources>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- 顶部工具栏 - Optimized height -->
+        <Border Grid.Row="0" Padding="12,8" Background="{skin:DynamicResource PrimaryBrush}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <!-- 标题 - Reduced font sizes -->
+                <StackPanel Grid.Column="0" VerticalAlignment="Center" Orientation="Horizontal">
+                    <TextBlock Margin="0,0,8,0" FontSize="18" Text="🎨" />
+                    <TextBlock VerticalAlignment="Center" FontSize="16" FontWeight="Bold" Foreground="White"
+                               Text="Dreamland.WPF.DynamicSkin" />
+                    <TextBlock Margin="10,0,0,0" VerticalAlignment="Center" FontSize="12" Foreground="White"
+                               Opacity="0.8" Text="动态换肤演示" />
+                    <TextBlock Margin="5,0,0,0" VerticalAlignment="Center" FontSize="11" FontStyle="Italic"
+                               Foreground="White" Opacity="0.6" Text="Dynamic Theme Demo" />
+                </StackPanel>
+
+                <!-- 主题切换按钮 - Reduced sizes -->
+                <StackPanel Grid.Column="1" VerticalAlignment="Center" Orientation="Horizontal">
+                    <TextBlock Margin="0,0,8,0" VerticalAlignment="Center" FontSize="12" Foreground="White"
+                               Text="选择主题：" />
+
+                    <Button Margin="3,0" MinWidth="60" Padding="12,5" FontSize="12" Content="默认"
+                            Style="{skin:DynamicStyle SecondaryButtonStyle}" Click="OnDefaultThemeClick" />
+
+                    <Button Margin="3,0" MinWidth="60" Padding="12,5" FontSize="12" Content="Dark"
+                            Style="{skin:DynamicStyle SecondaryButtonStyle}" Click="OnDarkThemeClick" />
+
+                    <Button Margin="3,0" MinWidth="60" Padding="12,5" FontSize="12" Content="Light"
+                            Style="{skin:DynamicStyle SecondaryButtonStyle}" Click="OnLightThemeClick" />
+
+                    <Button Margin="3,0" MinWidth="60" Padding="12,5" FontSize="12" Content="Blue"
+                            Style="{skin:DynamicStyle SecondaryButtonStyle}" Click="OnBlueThemeClick" />
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- 主内容区域 - Optimized padding -->
+        <ScrollViewer Grid.Row="1" Padding="15" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+
+                <!-- 欢迎标题 - Reduced margins -->
+                <controls:BilingualTextBlock Margin="0,12,0,16" HorizontalAlignment="Center" ChineseFontSize="22"
+                                             ChineseFontWeight="Bold" ChineseText="欢迎使用WPF动态换肤库！" EnglishFontSize="14"
+                                             EnglishText="Welcome to WPF Dynamic Skin Library!"
+                                             ShowTranslationIndicator="False" />
+
+                <controls:BilingualTextBlock Margin="64,0,0,20" HorizontalAlignment="Center" ChineseFontSize="12"
+                                             ChineseText="点击顶部按钮切换不同主题，查看实时效果" EnglishFontSize="10"
+                                             EnglishText="Click the buttons above to switch themes and see live effects"
+                                             ShowTranslationIndicator="False" />
+
+                <!-- 功能展示区域 - Optimized grid -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!-- 文本颜色演示 - Reduced padding and margins -->
+                    <Border Grid.Row="0" Grid.Column="0" Margin="5" Padding="12"
+                            Background="{skin:DynamicResource BackgroundBrush}"
+                            BorderBrush="{skin:DynamicResource BorderBrush}" BorderThickness="1" CornerRadius="6">
+                        <StackPanel>
+                            <controls:BilingualTextBlock Margin="0,0,0,10" ChineseFontSize="15"
+                                                         ChineseFontWeight="Bold" ChineseText="📝 文本颜色演示"
+                                                         EnglishFontSize="11" EnglishText="Text Color Demo" />
+
+                            <controls:BilingualTextBlock Margin="0,3" ChineseFontSize="12" ChineseText="默认前景色文本"
+                                                         EnglishFontSize="10" EnglishText="Default foreground text" />
+
+                            <TextBlock Margin="0,3" FontSize="12" FontWeight="Bold"
+                                       Foreground="{skin:DynamicResource PrimaryBrush}"
+                                       Text="主色调文本 | Primary color text" />
+
+                            <TextBlock Margin="0,3" FontSize="12" Foreground="{skin:DynamicResource SecondaryBrush}"
+                                       Text="次要色文本 | Secondary color text" />
+                        </StackPanel>
+                    </Border>
+
+                    <!-- 按钮样式演示 - Reduced padding -->
+                    <Border Grid.Row="0" Grid.Column="1" Margin="5" Padding="12"
+                            Background="{skin:DynamicResource BackgroundBrush}"
+                            BorderBrush="{skin:DynamicResource BorderBrush}" BorderThickness="1" CornerRadius="6">
+                        <StackPanel>
+                            <controls:BilingualTextBlock Margin="0,0,0,10" ChineseFontSize="15"
+                                                         ChineseFontWeight="Bold" ChineseText="🔘 按钮样式演示"
+                                                         EnglishFontSize="11" EnglishText="Button Style Demo" />
+
+                            <Button Margin="0,3" HorizontalAlignment="Stretch" Padding="12,5" FontSize="11"
+                                    Content="主要按钮 | Primary" Style="{skin:DynamicStyle PrimaryButtonStyle}" />
+
+                            <Button Margin="0,3" HorizontalAlignment="Stretch" Padding="12,5" FontSize="11"
+                                    Content="次要按钮 | Secondary" Style="{skin:DynamicStyle SecondaryButtonStyle}" />
+
+                            <Button Margin="0,3" HorizontalAlignment="Stretch" Padding="12,5" FontSize="11"
+                                    Content="禁用按钮 | Disabled" IsEnabled="False"
+                                    Style="{skin:DynamicStyle PrimaryButtonStyle}" />
+                        </StackPanel>
+                    </Border>
+
+                    <!-- 边框和背景演示 - Reduced sizes -->
+                    <Border Grid.Row="1" Grid.Column="0" Margin="5" Padding="12"
+                            Background="{skin:DynamicResource BackgroundBrush}"
+                            BorderBrush="{skin:DynamicResource BorderBrush}" BorderThickness="1" CornerRadius="6">
+                        <StackPanel>
+                            <controls:BilingualTextBlock Margin="0,0,0,10" ChineseFontSize="15"
+                                                         ChineseFontWeight="Bold" ChineseText="🎨 边框和背景演示"
+                                                         EnglishFontSize="11" EnglishText="Border | Background Demo" />
+
+                            <Border Margin="0,3" Padding="10" Background="{skin:DynamicResource PrimaryBrush}"
+                                    CornerRadius="4">
+                                <TextBlock HorizontalAlignment="Center" FontSize="11" FontWeight="Bold"
+                                           Foreground="White" Text="主色调背景 | Primary" />
+                            </Border>
+
+                            <Border Margin="0,3" Padding="10" Background="{skin:DynamicResource SecondaryBrush}"
+                                    CornerRadius="4">
+                                <TextBlock HorizontalAlignment="Center" FontSize="11" FontWeight="Bold"
+                                           Foreground="White" Text="次要色背景 | Secondary" />
+                            </Border>
+
+                            <Border Margin="0,3" Padding="10" BorderBrush="{skin:DynamicResource PrimaryBrush}"
+                                    BorderThickness="2" CornerRadius="4">
+                                <TextBlock HorizontalAlignment="Center" FontSize="11" FontWeight="Bold"
+                                           Foreground="{skin:DynamicResource ForegroundBrush}" Text="主色调边框 | Border" />
+                            </Border>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- 输入控件演示 - Reduced sizes -->
+                    <Border Grid.Row="1" Grid.Column="1" Margin="5" Padding="12"
+                            Background="{skin:DynamicResource BackgroundBrush}"
+                            BorderBrush="{skin:DynamicResource BorderBrush}" BorderThickness="1" CornerRadius="6">
+                        <StackPanel>
+                            <controls:BilingualTextBlock Margin="0,0,0,10" ChineseFontSize="15"
+                                                         ChineseFontWeight="Bold" ChineseText="📋 输入控件演示"
+                                                         EnglishFontSize="11" EnglishText="Input Control Demo" />
+
+                            <TextBox Margin="0,8,0,0" Padding="6 0" Height="32"
+                                     Text="文本输入框 | Text input"
+                                     Style="{skin:DynamicStyle TextBoxStyle}" />
+
+                            <ComboBox Margin="0,6,0,0" Padding="6 0"
+                                      SelectedIndex="0" Height="32"
+                                      Style="{skin:DynamicStyle ComboBoxStyle}">
+                                <ComboBoxItem Content="选项 1 | Option 1" />
+                                <ComboBoxItem Content="选项 2 | Option 2" />
+                                <ComboBoxItem Content="选项 3 | Option 3" />
+                            </ComboBox>
+
+                            <CheckBox Margin="0,8,0,0" FontSize="11" Content="复选框 | Checkbox"
+                                      Foreground="{skin:DynamicResource ForegroundBrush}" />
+
+                            <RadioButton Margin="0,8,0,0" FontSize="11" Content="单选按钮 | Radio"
+                                         Foreground="{skin:DynamicResource ForegroundBrush}" />
+                        </StackPanel>
+                    </Border>
+
+                    <!-- 信息展示 - Optimized -->
+                    <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" Padding="12"
+                            Background="{skin:DynamicResource BackgroundBrush}"
+                            BorderBrush="{skin:DynamicResource BorderBrush}" BorderThickness="1" CornerRadius="6">
+                        <StackPanel>
+                            <controls:BilingualTextBlock Margin="0,0,0,10" ChineseFontSize="15"
+                                                         ChineseFontWeight="Bold" ChineseText="ℹ️ 使用说明"
+                                                         EnglishFontSize="11" EnglishText="Usage Instructions" />
+
+                            <StackPanel Margin="0,0,0,8">
+                                <StackPanel Orientation="Horizontal">
+                                    <Border Width="3" Margin="0,0,6,0" Background="#FF1E90FF" CornerRadius="1.5" />
+                                    <TextBlock FontSize="11" Foreground="{skin:DynamicResource ForegroundBrush}"
+                                               Text="使用 {skin:DynamicStyle StyleKey} 绑定样式" TextWrapping="Wrap" />
+                                </StackPanel>
+                                <TextBlock Margin="9,2,0,0" FontSize="9"
+                                           Foreground="{skin:DynamicResource ForegroundBrush}" Opacity="0.6"
+                                           Text="Use {skin:DynamicStyle StyleKey} to bind styles" TextWrapping="Wrap" />
+                            </StackPanel>
+
+                            <StackPanel Margin="0,0,0,8">
+                                <StackPanel Orientation="Horizontal">
+                                    <Border Width="3" Margin="0,0,6,0" Background="#FF1E90FF" CornerRadius="1.5" />
+                                    <TextBlock FontSize="11" Foreground="{skin:DynamicResource ForegroundBrush}"
+                                               Text="使用 {skin:DynamicResource ResourceKey} 绑定资源" TextWrapping="Wrap" />
+                                </StackPanel>
+                                <TextBlock Margin="9,2,0,0" FontSize="9"
+                                           Foreground="{skin:DynamicResource ForegroundBrush}" Opacity="0.6"
+                                           Text="Use {skin:DynamicResource ResourceKey} to bind resources"
+                                           TextWrapping="Wrap" />
+                            </StackPanel>
+
+                            <StackPanel Margin="0,0,0,8">
+                                <StackPanel Orientation="Horizontal">
+                                    <Border Width="3" Margin="0,0,6,0" Background="#FF1E90FF" CornerRadius="1.5" />
+                                    <TextBlock FontFamily="Consolas" FontSize="11"
+                                               Foreground="{skin:DynamicResource ForegroundBrush}"
+                                               Text="代码切换主题：DynamicSkinService.CurrentSkinName = &quot;Dark&quot;;"
+                                               TextWrapping="Wrap" />
+                                </StackPanel>
+                                <TextBlock Margin="9,2,0,0" FontFamily="Consolas" FontSize="9"
+                                           Foreground="{skin:DynamicResource ForegroundBrush}" Opacity="0.6"
+                                           Text="Switch theme in code: DynamicSkinService.CurrentSkinName = &quot;Dark&quot;;"
+                                           TextWrapping="Wrap" />
+                            </StackPanel>
+
+                            <!-- 高级功能按钮 - Reduced size -->
+                            <Button Margin="0,8,0,0" HorizontalAlignment="Center" MinWidth="180" Padding="15,6"
+                                    FontSize="12" Content="🚀 查看高级功能 | Advanced Features"
+                                    Style="{skin:DynamicStyle PrimaryButtonStyle}" Click="OnAdvancedClick" />
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- 底部状态栏 - Reduced padding -->
+        <Border Grid.Row="2" Padding="12,6" Background="{skin:DynamicResource SecondaryBrush}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" VerticalAlignment="Center" Orientation="Horizontal">
+                    <Border Width="3" Margin="0,0,6,0" Background="White" CornerRadius="1.5" Opacity="0.7" />
+                    <TextBlock VerticalAlignment="Center" FontSize="11" Foreground="White">
+                        <Run Text="当前主题：" />
+                        <Run FontWeight="Bold"
+                             Text="{Binding CurrentTheme, RelativeSource={RelativeSource AncestorType=Window}}" />
+                    </TextBlock>
+                    <TextBlock Margin="8,0,0,0" VerticalAlignment="Center" FontSize="9" Foreground="White"
+                               Opacity="0.6" Text="Current Theme: " />
+                    <TextBlock VerticalAlignment="Center" FontSize="9" FontWeight="Bold" Foreground="White"
+                               Opacity="0.6"
+                               Text="{Binding CurrentTheme, RelativeSource={RelativeSource AncestorType=Window}}" />
+                </StackPanel>
+
+                <TextBlock Grid.Column="1" VerticalAlignment="Center" FontSize="10" Foreground="White" Opacity="0.7"
+                           Text="Dreamland.WPF.DynamicSkin v1.0.0" />
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
