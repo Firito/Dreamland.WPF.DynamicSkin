@@ -84,6 +84,12 @@ DynamicSkinService.CurrentSkinName = "Dark";
 
 ## 📸 效果预览 Preview
 
+### 默认主题
+![默认主题](Codes/Dreamland.WPF.DynamicSkin.Demo/Images/Default.png)
+
+### 暗色主题 (Dark)
+![暗色主题](Codes/Dreamland.WPF.DynamicSkin.Demo/Images/Darkness.png)
+
 运行 Demo 项目查看完整效果展示，包括：
 
 - ✅ 默认主题
