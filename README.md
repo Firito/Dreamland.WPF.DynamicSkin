@@ -1,3 +1,5 @@
+
+
 # Dreamland.WPF.DynamicSkin
 
 [![NuGet](https://img.shields.io/nuget/v/Dreamland.WPF.DynamicSkin.svg)](https://www.nuget.org/packages/Dreamland.WPF.DynamicSkin)
@@ -65,6 +67,7 @@ dotnet add package Dreamland.WPF.DynamicSkin
 ```
 
 ```csharp
+using Dreamland.WPF.DynamicSkin;
 // 4. 在代码中切换主题
 DynamicSkinService.CurrentSkinName = "Dark";
 ```
